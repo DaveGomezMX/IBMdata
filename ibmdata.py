@@ -129,7 +129,7 @@ app.layout = html.Div(children=[
                                html.Div([
                                    html.Div([ ], id='plot4'),
                                    html.Div([ ], id='plot5')]
-                                , style={'display': 'flex'})
+                                , style={'display': 'flex'})])
 
 # Callback function definition
 # TASK4: Add 5 ouput components
@@ -162,7 +162,7 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
             
             # TASK5: Average flight time by reporting airline
             # Enter your code below. Make sure you have correct formatting.
-            figure_name = px.line(input_data, x='Month', y='AirTime', color='Reporting_Airline', title='Average monthly flight time (minutes) by airline')
+            line_fig=px.line(line_data,x='Month',y='AirTime',color='Reporting_Airline',title='Average monthly flight time (minutes) by airline')
             
             # Percentage of diverted airport landings per reporting airline
             pie_fig = px.pie(div_data, values='Flights', names='Reporting_Airline', title='% of flights by reporting airline')
@@ -218,3 +218,4 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
 
 # Run the app
 if __name__ == '__main__':
+    app.run_server()
